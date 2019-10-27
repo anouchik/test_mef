@@ -14,7 +14,7 @@
       >Hugh is</h5>
       <input
         type="text"
-        v-model="amount"
+        v-model="age"
         v-autowidth="{maxWidth: 'auto', minWidth: '50px', comfortZone: 0}"
         placeholder="7"
         @change="changeNumber($event)"
@@ -32,15 +32,15 @@
 export default {
   name: "Form",
   data: () => ({
-    amount: null,
-    // amountTemp: null,
+    age: null,
+    // ageTemp: null,
     onFocus: false
   }),
   methods: {
     changeNumber(event) {
       console.log("old number : ", event.target.value);
-      this.amount = this.formatNumber(event.target.value);
-      console.log("new number : ", this.amount);
+      this.age = this.formatNumber(event.target.value);
+      console.log("new number : ", this.age);
     },
     checkNumber(event) {
       event = event ? event : window.event;
@@ -55,17 +55,17 @@ export default {
         return true;
       }
     },
-    formatNumber(amount) {
+    formatNumber(age) {
       if (
-        amount !== "" ||
-        amount !== undefined ||
-        amount !== 0 ||
-        amount !== "0" ||
-        amount !== null
+        age !== "" ||
+        age !== undefined ||
+        age !== 0 ||
+        age !== "0" ||
+        age !== null
       ) {
-        return amount.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+        return age.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
       } else {
-        return amount;
+        return age;
       }
     },
     onInputFocus() {
